@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-web-service
+  labels:
+    app: sample-web-service
+spec:
+  type: LoadBalancer
+  ports:
+  - protocol: TCP
+    targetPort: 5000
+    port: 80
+  selector:
+    app: sample-web-service
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sample-web-service
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sample-web-service
+    spec:
+      containers:
+      - name: sample-web-service
+        image: eloycoto/docker-test-image
+        ports:
+        - containerPort: 5000
+        livenessProbe:
+          failureThreshold: 2
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
