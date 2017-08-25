@@ -43,6 +43,7 @@ EOF
     sudo systemctl start etcd
 }
 
+sudo mount bpffs /sys/fs/bpf -t bpf
 
 if [[ "${HOST}" == "master" ]]; then
     kubeadm init --token "${TOKEN}"

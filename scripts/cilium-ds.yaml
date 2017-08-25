@@ -78,6 +78,7 @@ spec:
           - "/opt/cilium/kubeconfig"
           - "-t"
           - "vxlan"
+          # - "--disable-ipv4"
         lifecycle:
           postStart:
             exec:

@@ -7,6 +7,7 @@ enabled by default cilium-CNI plugin.
 To execute it, you need to run the following code:
 
 ```
+terraform init
 terraform apply
 ```
 

@@ -96,8 +96,10 @@ resource "google_compute_instance" "master" {
 	depends_on = ["google_compute_firewall.ingress", "google_compute_firewall.local"]
 	tags = ["k8s-master"]
 
-	disk {
-		image = "ubuntu-os-cloud/ubuntu-1604-lts"
+	boot_disk {
+		initialize_params {
+			image = "ubuntu-os-cloud/ubuntu-1604-lts"
+		}
 	}
 
 	network_interface {
@@ -138,8 +140,10 @@ resource "google_compute_instance" "node" {
 
 	tags = ["k8s-node-${count.index}"]
 
-	disk {
-		image = "ubuntu-os-cloud/ubuntu-1604-lts"
+	boot_disk {
+		initialize_params {
+			image = "ubuntu-os-cloud/ubuntu-1604-lts"
+		}
 	}
 
 	network_interface {
