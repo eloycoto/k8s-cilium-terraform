@@ -1,5 +1,4 @@
 variable "credentials" {
-    default="account.json"
 }
 
 variable "machine_type" {
@@ -15,15 +14,13 @@ variable "network_name" {
 }
 
 variable "nodes" {
-    default = 1
+    default = 3
 }
 
 variable "private_key_path" {
-  default = "~/.ssh/google_compute_engine"
 }
 
 variable "project" {
-    default = "k8s-cilium"
 }
 
 variable "region" {
