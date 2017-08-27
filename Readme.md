@@ -105,7 +105,7 @@ Allocated IPv6 addresses:
  f00d::ac10:2:0:1
  f00d::ac10:2:0:ad
  f00d::ac10:2:0:8ad6
-KVStore:            Ok   Etcd: http://172.16.0.2:6666 - (Leader) 3.1.0
+KVStore:            Ok   Etcd: http://172.16.0.2:9732 - (Leader) 3.1.0
 ContainerRuntime:   Ok
 Kubernetes:         Ok   OK
 Cilium:             Ok   OK
@@ -116,7 +116,7 @@ Allocated IPv4 addresses:
 Allocated IPv6 addresses:
  f00d::ac10:5:0:1
  f00d::ac10:5:0:8ad6
-KVStore:            Ok   Etcd: http://172.16.0.2:6666 - (Leader) 3.1.0
+KVStore:            Ok   Etcd: http://172.16.0.2:9732 - (Leader) 3.1.0
 ContainerRuntime:   Ok
 Kubernetes:         Ok   OK
 Cilium:             Ok   OK
@@ -127,7 +127,7 @@ Allocated IPv4 addresses:
 Allocated IPv6 addresses:
  f00d::ac10:4:0:1
  f00d::ac10:4:0:8ad6
-KVStore:            Ok   Etcd: http://172.16.0.2:6666 - (Leader) 3.1.0
+KVStore:            Ok   Etcd: http://172.16.0.2:9732 - (Leader) 3.1.0
 ContainerRuntime:   Ok
 Kubernetes:         Ok   OK
 Cilium:             Ok   OK
@@ -138,7 +138,7 @@ Allocated IPv4 addresses:
 Allocated IPv6 addresses:
  f00d::ac10:3:0:1
  f00d::ac10:3:0:8ad6
-KVStore:            Ok   Etcd: http://172.16.0.2:6666 - (Leader) 3.1.0
+KVStore:            Ok   Etcd: http://172.16.0.2:9732 - (Leader) 3.1.0
 ContainerRuntime:   Ok
 Kubernetes:         Ok   OK
 Cilium:             Ok   OK

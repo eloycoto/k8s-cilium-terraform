@@ -73,7 +73,7 @@ spec:
           - "--kvstore"
           - "etcd"
           - "--kvstore-opt"
-          - "etcd.address=http://172.16.0.2:6666"
+          - "etcd.address=http://172.16.0.2:9732"
           - "--k8s-kubeconfig-path"
           - "/opt/cilium/kubeconfig"
           - "-t"
