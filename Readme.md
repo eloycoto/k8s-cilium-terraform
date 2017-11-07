@@ -273,7 +273,3 @@ terraform destroy \
     --var project="k8s-cilium"
     --var credentials="./account.json"
 ```
-If something get wrong, manually delete with
-```
-gcloud projects delete --quiet k8s-cilium
-```
