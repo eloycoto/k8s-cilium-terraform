@@ -41,6 +41,7 @@ If you get a error, create it here: https://console.cloud.google.com/iam-admin/s
 - Google compute engine keys created on ~/.ssh/
 ```
 ssh-keygen -f ~/.ssh/google_compute_engine 
+gcloud compute project-info add-metadata --metadata-from-file ssh-keys=.ssh/google_compute_engine.pub
 ```
 
 
