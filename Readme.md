@@ -21,14 +21,18 @@ echo "Install Terraform for Linux 64-bit"
 ARCHITECTURE='amd64'
 TERRAFORM_VERSION='0.10.8'
 mkdir -p /tmp/install-terraform
-ls /tmp/install-terraform
 cd /tmp/install-terraform  && wget https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_$TERRAFORM_\
 VERSION\_linux_amd64.zip
 sudo unzip -o /tmp/install-terraform/terraform_$TERRAFORM_VERSION\_linux_amd64.zip -d /usr/local/bin/
 /usr/local/bin/terraform --version
 ```
-
 - Google service account json file.
+```
+gcloud projects create k8s-cilium --set-as-default  # If not allready exist
+gcloud iam service-accounts keys create \
+    ~/account.json \
+    --iam-account service-account@k8s-cilium.iam.gserviceaccount.com
+
 - Google compute engine keys created on ~/.ssh/
 
 
@@ -259,4 +263,8 @@ terraform destroy \
     --var private_key_path="~/.ssh/google_compute_engine"
     --var project="k8s-cilium"
     --var credentials="./account.json"
+```
+If something get wrong, manually delete with
+```
+gcloud projects delete --quiet k8s-cilium
 ```
