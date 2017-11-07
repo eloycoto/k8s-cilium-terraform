@@ -57,5 +57,4 @@ if [[ "${HOST}" == "master" ]]; then
     sudo -H kubectl create -f $DIR/cilium-ds.yaml
 else
     kubeadm join --token=${TOKEN} $MASTER:6443
-    sudo cp /etc/kubernetes/kubelet.conf ${CILIUM_CONFIG_DIR}/kubeconfig
 fi
