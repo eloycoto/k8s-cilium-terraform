@@ -35,6 +35,7 @@ gcloud iam service-accounts keys create \
     --iam-account service-account@k8s-cilium.iam.gserviceaccount.com
 ```
 If you get a error, create it here: https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=k8s-cilium
+![create service account](/documentation/service-account.jpg?raw=true "create service account")
 
 
 - Google compute engine keys created on ~/.ssh/
