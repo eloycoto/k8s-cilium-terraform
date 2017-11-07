@@ -11,10 +11,25 @@ Kubernetes.
 
 ## Prerequisites
 
-- Google Cloud console installed.
-- Terraform >= v0.10.2 installed.
-- Google service account json file.
-- Google compute engine keys created on ~/.ssh/
+- #### Google Cloud console installed.
+https://cloud.google.com/sdk/
+
+- #### Terraform >= v0.10.2 installed. 
+https://www.terraform.io/downloads.html
+```
+echo "Install Terraform for Linux 64-bit"
+ARCHITECTURE='amd64'
+TERRAFORM_VERSION='0.10.8'
+mkdir -p /tmp/install-terraform
+ls /tmp/install-terraform
+cd /tmp/install-terraform  && wget https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_$TERRAFORM_\
+VERSION\_linux_amd64.zip
+sudo unzip -o /tmp/install-terraform/terraform_$TERRAFORM_VERSION\_linux_amd64.zip -d /usr/local/bin/
+/usr/local/bin/terraform --version
+```
+
+#### Google service account json file.
+#### Google compute engine keys created on ~/.ssh/
 
 
 ## Usage
