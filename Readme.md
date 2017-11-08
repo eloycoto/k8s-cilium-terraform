@@ -26,6 +26,11 @@ VERSION\_linux_amd64.zip
 sudo unzip -o /tmp/install-terraform/terraform_$TERRAFORM_VERSION\_linux_amd64.zip -d /usr/local/bin/
 /usr/local/bin/terraform --version
 ```
+- Create Google Project
+```
+gcloud projects create k8s-cilium --set-as-default  # If not allready exist
+```
+
 - Enable Google API
 ```
 gcloud services enable compute.googleapis.com
@@ -34,7 +39,6 @@ gcloud services enable compute.googleapis.com
 - Google service account json file. 
 https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=k8s-cilium
 ```
-gcloud projects create k8s-cilium --set-as-default  # If not allready exist
 gcloud iam service-accounts keys create \
     ~/account.json \
     --iam-account service-account@k8s-cilium.iam.gserviceaccount.com
