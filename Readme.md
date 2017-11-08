@@ -26,6 +26,11 @@ VERSION\_linux_amd64.zip
 sudo unzip -o /tmp/install-terraform/terraform_$TERRAFORM_VERSION\_linux_amd64.zip -d /usr/local/bin/
 /usr/local/bin/terraform --version
 ```
+- Enable Google API
+```
+gcloud services enable compute.googleapis.com
+```
+
 - Google service account json file. 
 https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=k8s-cilium
 ```
