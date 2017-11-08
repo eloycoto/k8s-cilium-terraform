@@ -12,9 +12,54 @@ Kubernetes.
 ## Prerequisites
 
 - Google Cloud console installed.
-- Terraform >= v0.10.2 installed.
-- Google service account json file.
+https://cloud.google.com/sdk/
+
+- Terraform >= v0.10.2 installed. 
+https://www.terraform.io/downloads.html
+```
+echo "Install Terraform for Linux 64-bit"
+ARCHITECTURE='amd64'
+TERRAFORM_VERSION='0.10.8'
+mkdir -p /tmp/install-terraform
+cd /tmp/install-terraform  && wget https://releases.hashicorp.com/terraform/$TERRAFORM_VERSION/terraform_$TERRAFORM_\
+VERSION\_linux_amd64.zip
+sudo unzip -o /tmp/install-terraform/terraform_$TERRAFORM_VERSION\_linux_amd64.zip -d /usr/local/bin/
+/usr/local/bin/terraform --version
+```
+- Create Google Project
+```
+gcloud projects create k8s-cilium --set-as-default  # If not allready exist
+```
+
+- Enable Google API
+```
+gcloud services enable compute.googleapis.com
+```
+
+- Google service account json file. 
+https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=k8s-cilium
+```
+gcloud iam service-accounts keys create \
+    ~/account.json \
+    --iam-account service-account@k8s-cilium.iam.gserviceaccount.com
+```
+If you get a error, create it here: https://console.cloud.google.com/iam-admin/serviceaccounts/project?project=k8s-cilium
+![create service account](/documentation/service-account.jpg?raw=true "create service account")
+
+
 - Google compute engine keys created on ~/.ssh/
+```
+# generate the ssh-key
+ssh-keygen -f ~/.ssh/google_compute_engine 
+# Format the key for google
+awk -v USER="$USER" '{print USER ":" $1 " " $2 " " USER}' ~/.ssh/google_compute_engine.pub > new_keys.pub
+# if the project has another ssh-keys
+gcloud compute project-info describe > project.yaml
+cat project.yaml| egrep 'ssh-' | awk '{print $1 " " $2 " " $3}' > existing_project_keys.pub
+cat existing_project_keys.pub >> new_keys.pub
+# upload the pub keys to google
+gcloud compute project-info add-metadata --metadata-from-file sshKeys=new_keys.pub
+```
 
 
 ## Usage
