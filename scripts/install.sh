@@ -53,7 +53,7 @@ if [[ "${HOST}" == "master" ]]; then
 
     sudo cp /etc/kubernetes/admin.conf ${CILIUM_CONFIG_DIR}/kubeconfig
     install_etcd
-    sudo -H kubectl create -f $DIR/rbac.yaml
+    # sudo -H kubectl create -f $DIR/rbac.yaml
     sudo -H kubectl create -f $DIR/cilium-ds.yaml
 else
     kubeadm join --token=${TOKEN} $MASTER:6443
