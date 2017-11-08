@@ -45,8 +45,16 @@ If you get a error, create it here: https://console.cloud.google.com/iam-admin/s
 
 - Google compute engine keys created on ~/.ssh/
 ```
+# generate the ssh-key
 ssh-keygen -f ~/.ssh/google_compute_engine 
-gcloud compute project-info add-metadata --metadata-from-file ssh-keys=.ssh/google_compute_engine.pub
+# Format the key for google
+awk -v USER="$USER" '{print USER ":" $1 " " $2 " " USER}' ~/.ssh/google_compute_engine.pub > new_keys.pub
+# if the project has another ssh-keys
+gcloud compute project-info describe > project.yaml
+cat project.yaml| egrep 'ssh-' | awk '{print $1 " " $2 " " $3}' > existing_project_keys.pub
+cat existing_project_keys.pub >> new_keys.pub
+# upload the pub keys to google
+gcloud compute project-info add-metadata --metadata-from-file sshKeys=new_keys.pub
 ```
 
 
